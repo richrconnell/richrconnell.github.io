@@ -9,986 +9,446 @@
     <link rel="stylesheet" href="styles.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js">
     </script>
+    <!-- <script>
+        var elements = $('.modal-overlay, .modal');
+
+        $('button').click(function () {
+            elements.addClass('active');
+        });
+
+        $('.close-modal').click(function () {
+            elements.removeClass('active');
+        });
+    </script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
 
 
-    <section class="section">
-        <div class="container">
-            <div class="content">
-                <h1>Carbon 3 Recruiting Calculator</h1>
-                <p>
-                    Carbon 3 Recruiting Calculator will allows leaders/hiring managers to calculate how much an employee
-                    costs them or a bad hire employee would cost them.
-                </p>
-            </div>
+    <h1>Simple Responsive Modal</h1>
+    <button>Click For Modal</button>
 
-            <div class="columns">
-                <div class="column is-three-quarters">
+    <!-- modal -->
+    <div class="modal-overlay">
+        <div class="modal">
 
-                    <div class="card">
+            <a class="close-modal">
+                <svg viewBox="0 0 20 20">
+                    <path fill="#000000"
+                        d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z">
+                    </path>
+                </svg>
+            </a><!-- close modal -->
+            <div class="modal-content">
+                <section class="section">
+                    <div class="container">
+                        <!-- <div class="content">
+                            <h1>Carbon 3 Recruiting Calculator</h1>
+                            <p>
+                                Carbon 3 Recruiting Calculator will allows leaders/hiring managers to calculate how much
+                                an
+                                employee
+                                costs them or a bad hire employee would cost them.
+                            </p>
+                        </div> -->
 
-                        <div class="card-content">
-                            <!-- RESULTS -->
-                            <header class="section sticky">
-                                <h1 class="title ">Results</h1>
-                                <div class="columns is-multiline">
+                        <div class="columns">
+                            <div class="column is-three-quarters">
 
-                                    <div class="column is-12-tablet is-6-desktop is-3-widescreen">
-                                        <div class="notification is-warning has-text">
-                                            <p id="disruptionOutput" class="title is-1">$<h4 id="disruptionOutput"></h4>
-                                            </p>
-                                            <p class="subtitle is-4">Effect on Team/Company
-                                                performance
-                                            </p>
-                                        </div>
-                                    </div>
+                                <div class="card">
 
-                                    <div class="column is-12-tablet is-6-desktop is-3-widescreen">
-                                        <div class="notification is-info has-text">
-                                            <p id="salaryOut" class="title is-1">$<h4 id="salarayOut"></h4>
-                                            </p>
-                                            <p class="subtitle is-4">Salary</p>
-                                        </div>
-                                    </div>
+                                    <div class="card-content">
+                                        <!-- RESULTS -->
+                                        <header class="section sticky">
 
-                                    <div class="column is-12-tablet is-6-desktop is-3-widescreen">
-                                        <div class="notification is-danger has-text">
-                                            <p id="totalPayment" class="title is-1">$<h4 id="totalCost"></h4>
-                                            </p>
-                                            <p class="subtitle is-4">Total Amount</p>
-                                        </div>
-                                    </div>
+                                            <div class="columns is-multiline">
 
-                                </div>
-                            </header>
-                            <form id="loan-form">
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">1</p>
-                                            Advertising & Job Postings &nbsp; <i class="fa fa-dollar-sign"> </i><output
-                                                name="advValueOut" id="advValueID" class="h4Display"> 0</output>
-                                        </div>
-                                    </div>
+                                                <!-- <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+                                                    <div class="notification is-warning has-text">
+                                                        <p id="disruptionOutput" class="title is-1">$<h4
+                                                                id="disruptionOutput"></h4>
+                                                        </p>
+                                                        <p class="subtitle is-4">Effect on Team/Company
+                                                            performance
+                                                        </p>
+                                                    </div>
+                                                </div> -->
 
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="range" class="slider" id="adv" name="advSlider"
-                                                        list="adTick" value="0" min="250" max="15000" step="500"
-                                                        oninput="advValueID.value = adv.value"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
+                                                <!-- <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+                                                    <div class="notification is-info has-text">
+                                                        <p id="salaryOut" class="title is-1">$<h4 id="salarayOut"></h4>
+                                                        </p>
+                                                        <p class="subtitle is-4">Salary</p>
+                                                    </div>
+                                                </div> -->
 
-                                                    </span>
+                                                <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+                                                    <div class="notification is-danger has-text">
+                                                        <p id="totalPayment" class="title is-1">$<h4 id="totalCost">
+                                                            </h4>
+                                                        </p>
+                                                        <p class="subtitle is-4">Total Amount</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </header>
+                                        <form id="loan-form">
+
+
+                                            <div class="level">
+                                                <!-- Left side -->
+                                                <div class="level-left is-marginless">
+                                                    <div class="level-item">
+                                                        <p class="number">13</p>
+                                                        Recruiting:
+                                                        &nbsp; <i class="fa fa-dollar-sign">
+                                                        </i><output name="bonusOutput" id="bonusOutput"
+                                                            class="h4Display">0</output>
+                                                    </div>
+
+                                                </div>
+
+                                                <!-- Right side -->
+                                                <div class="level-right">
+                                                    <div class="level-item">
+                                                        <div class="field">
+                                                            <div class="control has-icons-left ">
+                                                                <!-- <i class="fa fa-dollar-sign"></i> -->
+                                                                <select name="bonus" id="bonus"
+                                                                    class="bonusSelect dropdownSelect"
+                                                                    placeholder="Bonus"
+                                                                    onchange="RecruitingSoftCalc(this.value)">
+                                                                    <option value="0">--Please Select Bonus Value--
+                                                                    </option>
+                                                                    <option value="10">10</option>
+                                                                    <option value="15">15</option>
+                                                                    <option value="20">20</option>
+                                                                    <option value="25">25</option>
+                                                                    <option value="30">30</option>
+                                                                    <option value="35">35</option>
+                                                                </select>
+                                                                <span class="icon is-small is-left">
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="level">
+                                                <!-- Left side -->
+                                                <div class="level-left is-marginless">
+                                                    <div class="level-item">
+                                                        <p class="number">13</p>
+                                                        Compensation: &nbsp; <i class="fa fa-dollar-sign">
+                                                        </i><output name="bonusOutput" id="bonusOutput"
+                                                            class="h4Display">0</output>
+                                                    </div>
+
+                                                </div>
+
+                                                <!-- Right side -->
+                                                <div class="level-right">
+                                                    <div class="level-item">
+                                                        <div class="field">
+                                                            <div class="control has-icons-left ">
+                                                                <!-- <i class="fa fa-dollar-sign"></i> -->
+                                                                <select name="bonus" id="bonus"
+                                                                    class="bonusSelect dropdownSelect"
+                                                                    placeholder="Bonus"
+                                                                    onchange="RecruitingSoftCalc(this.value)">
+                                                                    <option value="0">--Please Select Bonus Value--
+                                                                    </option>
+                                                                    <option value="10">10</option>
+                                                                    <option value="15">15</option>
+                                                                    <option value="20">20</option>
+                                                                    <option value="25">25</option>
+                                                                    <option value="30">30</option>
+                                                                    <option value="35">35</option>
+                                                                </select>
+                                                                <span class="icon is-small is-left">
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="level">
+                                                <!-- Left side -->
+                                                <div class="level-left is-marginless">
+                                                    <div class="level-item">
+                                                        <p class="number">20</p>
+                                                        Benefits: &nbsp; <i class="fa fa-dollar-sign">
+                                                        </i><output name="turnoverOutput" id="turnoverOutput"
+                                                            class="h4Display">0</output>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Right side -->
+                                                <div class="level-right">
+                                                    <div class="level-item">
+                                                        <div class="field">
+                                                            <div class="control has-icons-left ">
+                                                                <!-- <i class="fa fa-dollar-sign"></i> -->
+
+                                                                <span class="icon is-small is-left">
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="level">
+                                                <!-- Left side -->
+                                                <div class="level-left is-marginless">
+                                                    <div class="level-item">
+                                                        <p class="number">23</p>
+                                                        Taxes & Workers Comp : &nbsp; <i class="fa fa-dollar-sign">
+                                                        </i><output name="taxOutput" id="taxOutput">0</output>
+                                                    </div>
+
+                                                </div>
+
+                                                <!-- Right side -->
+                                                <div class="level-right">
+                                                    <div class="level-item">
+                                                        <div class="field">
+                                                            <div class="control has-icons-left ">
+                                                                <!-- <i class="fa fa-dollar-sign"></i> -->
+                                                                <input type="checkbox" id="taxes" name="taxes"
+                                                                    value="13.85"
+                                                                    onchange="RecruitingSoftCalc(this.value)">
+                                                                <span class="icon is-small is-left">
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="level">
+                                                <!-- Left side -->
+                                                <div class="level-left is-marginless">
+                                                    <div class="level-item">
+                                                        <p class="number">20</p>
+                                                        Overhead &nbsp; <i class="fa fa-dollar-sign">
+                                                        </i><output name="turnoverOutput" id="turnoverOutput"
+                                                            class="h4Display">0</output>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Right side -->
+                                                <div class="level-right">
+                                                    <div class="level-item">
+                                                        <div class="field">
+                                                            <div class="control has-icons-left ">
+                                                                <!-- <i class="fa fa-dollar-sign"></i> -->
+
+                                                                <span class="icon is-small is-left">
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="level">
+                                                <!-- Left side -->
+                                                <div class="level-left is-marginless">
+                                                    <div class="level-item">
+                                                        <p class="number">9</p>
+                                                        Onboarding::
+                                                        &nbsp; <i class="fa fa-dollar-sign"> </i><output
+                                                            name="onboardingOut" id="onboardingOut"
+                                                            class="h4Display">0</output>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Right side -->
+                                                <div class="level-right">
+                                                    <div class="level-item">
+                                                        <div class="field">
+                                                            <div class="control has-icons-left ">
+                                                                <select name="onboarding" id="onboarding"
+                                                                    class="onboardingSelect dropdownSelect"
+                                                                    placeholder="onboarding"
+                                                                    onchange="RecruitingSoftCalc(this.value)">
+                                                                    <option value="0">--Please Select Bonus Value--
+                                                                    </option>
+                                                                    <option value="10">10</option>
+                                                                    <option value="15">15</option>
+                                                                    <option value="20">20</option>
+                                                                    <option value="25">25</option>
+                                                                    <option value="30">30</option>
+                                                                    <option value="35">35</option>
+                                                                </select>
+
+                                                                <span class="icon is-small is-left">
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="level">
+                                                <!-- Left side -->
+                                                <div class="level-left is-marginless">
+                                                    <div class="level-item">
+                                                        <p class="number">25</p>
+                                                        Is the employee toxic?: &nbsp; <i class="fa fa-dollar-sign">
+                                                        </i><output name="toxicOut" id="toxicOut">0</output>
+                                                    </div>
+
+                                                </div>
+
+                                                <!-- Right side -->
+                                                <div class="level-right">
+                                                    <div class="level-item">
+                                                        <div class="field">
+                                                            <div class="control has-icons-left ">
+                                                                <!-- <i class="fa fa-dollar-sign"></i> -->
+                                                                <input type="checkbox" id="toxic" name="toxic"
+                                                                    value="17600"
+                                                                    onchange="RecruitingSoftCalc(this.value)">
+                                                                <span class="icon is-small is-left">
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="level">
+                                                <!-- Left side -->
+                                                <div class="level-left is-marginless">
+                                                    <div class="level-item">
+                                                        <p class="number">16</p>
+                                                        Severance:
+                                                        &nbsp;
+                                                        <i class="fa fa-dollar-sign">
+                                                        </i><output name="severenceOutput" id="severenceOutput"
+                                                            class="h4Display">0</output>
+                                                    </div>
+
+                                                </div>
+
+                                                <!-- Right side -->
+                                                <div class="level-right">
+                                                    <div class="level-item">
+                                                        <div class="field">
+                                                            <div class="control has-icons-left ">
+                                                                <!-- <i class="fa fa-dollar-sign"></i> -->
+                                                                <select name="severanceOut" id="severanceOut"
+                                                                    class="severanceOutSelect dropdownSelect"
+                                                                    placeholder="Severance"
+                                                                    onchange="RecruitingSoftCalc(this.value)">
+                                                                    <option selected value="0">--Please Select Cost
+                                                                        Value--
+                                                                    </option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                    <option value="6">6</option>
+                                                                    <option value="7">7</option>
+                                                                    <option value="8">8</option>
+                                                                    <option value="9">9</option>
+                                                                    <option value="10">10</option>
+                                                                    <option value="11">11</option>
+                                                                    <option value="12">12</option>
+                                                                </select>
+                                                                <span class="icon is-small is-left">
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+                                            <!-- <div class="level">-->
+                                            <!--Left side -->
+                                            <!-- <div class="level-left is-marginless">
+                                            <div class="level-item">
+                                                <p class="number">2</p>
+                                                Interest Rate
+                                            </div>
+                                        </div> -->
+
+                                            <!-- Right side -->
+                                            <!-- <div class="level-right">
+                                            <div class="level-item">
+                                                <div class="field">
+                                                    <div class="control has-icons-right">
+                                                        <input class="input" id="interest" type="number" />
+                                                        <span class="icon is-small is-right">
+                                                            <i class="fa fa-percentage"></i>
+    
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </div> -->
+                                            <!-- <div class="level"> -->
+                                            <!-- Left side -->
+                                            <!-- <div class="level-left is-marginless">
+                                            <div class="level-item">
+                                                <p class="number">3</p>
+                                                Number Of Years
+                                            </div>
+                                        </div> -->
 
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">2</p>
-                                            Recruiter (Internal): &nbsp; <i class="fa fa-dollar-sign"> </i><output
-                                                name="recruiterOut" id="recruiterValueID" class="h4Display">0</output>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="range" class="slider" id="recruiterSlider"
-                                                        name="valueSlider" list="recruiterTick" value="0" min="5000"
-                                                        max="40000" step="500"
-                                                        oninput="recruiterValueID.value = recruiterSlider.value"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-
-                                                    </span>
+                                            <!-- Right side -->
+                                            <!-- <div class="level-right">
+                                            <div class="level-item">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        <input class="input" id="years" type="number" />
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">3</p>
-                                            Recruiter (External): &nbsp; <i class="fa fa-dollar-sign"> </i><output
-                                                name="recruiterExternalOut" id="recruiterExternalValueID"
-                                                class="h4Display">0</output>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="range" class="slider" id="recruiterExternal"
-                                                        name="recruiterExternal" list="recruiterTick" value="0"
-                                                        min="5000" max="40000" step="500"
-                                                        oninput="recruiterExternalValueID.value = recruiterExternal.value"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">4</p>
-                                            Recruiting software (includes Linkedin license/ATS or CRM): &nbsp; <i
-                                                class="fa fa-dollar-sign"> </i><output name="recSoftOut" id="recSoftOut"
-                                                class="h4Display">0</output>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="range" class="slider" id="recSoftValue"
-                                                        name="valueSlider" list="recSoftTick" value="0" min="100"
-                                                        max="2000" step="100"
-                                                        oninput="recSoftOut.value = recSoftValue.value"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">5</p>
-                                            Hours & Cost spent to recruit: &nbsp; <i class="fa fa-dollar-sign">
-                                            </i><output name="hoursCostOut" id="hoursCostOut"
-                                                class="h4Display">0</output>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="range" class="slider" id="hoursCost" name="hoursCost"
-                                                        list="hoursCostTick" value="0" min="40" max="250" step="1"
-                                                        oninput="hoursCostOut.value = hoursCost.value"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-
-
-
-                                                    <!-- <h4 id="rsoutput" class="h4Display">0</h4> -->
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-
-                                                </div>
-                                                # of Hours
-                                                <input type="number" id="hour" onchange="RecruitingSoftCalc(this.value)"
-                                                    placeholder="Hourly Wage" value="0" label="# of Hours">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number"><i class="fa fa-arrow-up" aria-hidden="true"></i></p>
-                                            <p>Total (Hours and Cost): $<output name="rsoutput" id="rsoutput">0</output>
-                                            </p>
-                                            <!-- <i
-                                                class="fa fa-dollar-sign">
-                                            </i> -->
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">6</p>
-                                            Salary: &nbsp; <i class="fa fa-dollar-sign"> </i><output name="salarayOut"
-                                                id="salarayOut" class="h4Display">35000</output>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="range" class="slider" id="salary" name="salary"
-                                                        list="salaryTick" value="0" min="35000" max="60000" step="5000"
-                                                        oninput="salarayOut.value = salary.value"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">7</p>
-                                            Work not completed: &nbsp; <i class="fa fa-dollar-sign"> </i><output
-                                                name="workNotCompleteOut" id="workNotCompleteOut"
-                                                class="h4Display">0</output>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="range" class="slider" id="workNotComplete"
-                                                        name="workNotComplete" list="workNotCompleteTick" value="0"
-                                                        min="1000" max="500000" step="5000"
-                                                        oninput="workNotCompleteOut.value = workNotComplete.value"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">8</p>
-                                            Mistakes, failures, missed business opportunities, Mismanaged: &nbsp; <i
-                                                class="fa fa-dollar-sign"> </i><output name="mistakesOut"
-                                                id="mistakesOut" class="h4Display">0</output>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="range" class="slider" id="mistakes" name="mistakes"
-                                                        list="mistakesTick" value="0" min="1000" max="500000"
-                                                        step="5000" oninput="mistakesOut.value = workNotComplete.value"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">9</p>
-                                            Onboarding & Training (Manager's time spent, training, office supplies):
-                                            &nbsp; <i class="fa fa-dollar-sign"> </i><output name="onboardingOut"
-                                                id="onboardingOut" class="h4Display">0</output>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="range" class="slider" id="onboarding" name="onboarding"
-                                                        list="onboardingTick" value="0" min="4000" max="30000"
-                                                        step="500" oninput="onboardingOut.value = onboarding.value"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">10</p>
-                                            Desk, Computer, accessories, equipment, phone, software, etc..: &nbsp; <i
-                                                class="fa fa-dollar-sign"> </i><output name="equipOut" id="equipOut"
-                                                class="h4Display">0</output>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="range" class="slider" id="equip" name="equip"
-                                                        list="equipTick" value="0" min="2500" max="10000" step="500"
-                                                        oninput="equipOut.value = equip.value"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">11</p>
-                                            Employee Recognition, Presidents Club, Awards, Gifts: &nbsp; <i
-                                                class="fa fa-dollar-sign"> </i><output name="awardsOut" id="awardsOut"
-                                                class="h4Display">0</output>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="range" class="slider" id="awards" name="awards"
-                                                        list="awardsTick" value="0" min="100" max="10000" step="500"
-                                                        oninput="awardsOut.value = awards.value"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">12</p>
-                                            Meals, Travel - Mileage Reimubursement: &nbsp; <i class="fa fa-dollar-sign">
-                                            </i><output name="reimubursementOut" id="reimubursementOut"
-                                                class="h4Display">0</output>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="range" class="slider" id="reimubursement"
-                                                        name="reimubursement" list="reimubursementTick" value="0"
-                                                        min="100" max="10000" step="500"
-                                                        oninput="reimubursementOut.value = reimubursement.value"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">13</p>
-                                            Bonus (10-35 % of base salary) &nbsp; <i class="fa fa-dollar-sign">
-                                            </i><output name="bonusOutput" id="bonusOutput" class="h4Display">0</output>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <select name="bonus" id="bonus" class="bonusSelect dropdownSelect"
-                                                        placeholder="Bonus" onchange="RecruitingSoftCalc(this.value)">
-                                                        <option value="0">--Please Select Bonus Value--</option>
-                                                        <option value="10">10</option>
-                                                        <option value="15">15</option>
-                                                        <option value="20">20</option>
-                                                        <option value="25">25</option>
-                                                        <option value="30">30</option>
-                                                        <option value="35">35</option>
-                                                    </select>
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">14</p>
-                                            401k (3.9% -6%): &nbsp; <i class="fa fa-dollar-sign">
-                                            </i><output name="retirmentOutput" id="retirmentOutput"
-                                                class="h4Display">0</output>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <select name="retirement" id="retirement"
-                                                        class="retirementSelect dropdownSelect" placeholder="401K"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                        <option value="0">--Please Select 401K Value--</option>
-                                                        <option value="10">10</option>
-                                                        <option value="15">15</option>
-                                                        <option value="20">20</option>
-                                                        <option value="25">25</option>
-                                                        <option value="30">30</option>
-                                                        <option value="35">35</option>
-                                                        <option value="40">40</option>
-                                                        <option value="45">45</option>
-                                                    </select>
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">15</p>
-                                            Worker's Compensation 0.3% of salary and manufacturing at 7.5%: &nbsp; <i
-                                                class="fa fa-dollar-sign">
-                                            </i><output name="compensationOutput" id="compensationOutput"
-                                                class="h4Display">0</output>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <select name="sources" id="compensation" class="dropdownSelect"
-                                                        placeholder="Worker's Compensation"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                        <option value="0">--Please Select Cost Value--</option>
-                                                        <option value="10">.3</option>
-                                                        <option value="15">7.5</option>
-                                                    </select>
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">16</p>
-                                            Severance have a math calculation next to the # of months): &nbsp; <i
-                                                class="fa fa-dollar-sign">
-                                            </i><output name="severenceOutput" id="severenceOutput"
-                                                class="h4Display">0</output>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <select name="severanceOut" id="severanceOut"
-                                                        class="severanceOutSelect dropdownSelect"
-                                                        placeholder="Severance"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                        <option selected value="0">--Please Select Cost Value--</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                        <option value="11">11</option>
-                                                        <option value="12">12</option>
-                                                    </select>
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">17</p>
-                                            Office Costs - Utilities - Rent (monthly per desk): &nbsp; <i
-                                                class="fa fa-dollar-sign">
-                                            </i><output name="officeCostOutput" id="officeCostOutput"
-                                                class="h4Display">0</output>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    Rent
-                                                    <input type="number" id="rent" name="rent" value="0"
-                                                        onchange="RecruitingSoftCalc(this.value)"
-                                                        placeholder="Office Costs">
-                                                    # of Employees
-                                                    <input type="number" id="employeeCount" name="employeeCount"
-                                                        value="0" onchange="RecruitingSoftCalc(this.value)"
-                                                        placeholder="Employee Count">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">18</p>
-                                            Lack of productivity - salary: &nbsp; <i class="fa fa-dollar-sign">
-                                            </i><output name="productivitySalaryOutput" id="productivitySalaryOutput"
-                                                class="h4Display">0</output>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    Days
-                                                    <input type="number" id="productivitySalary"
-                                                        name="productivitySalary"
-                                                        onchange="RecruitingSoftCalc(this.value)" placeholder="Days"
-                                                        value="0">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">19</p>
-                                            Lack of productivity - Lack of productivity - hourly: &nbsp; <i
-                                                class="fa fa-dollar-sign">
-                                            </i><output name="productivityHourOutput" id="productivityHourOutput"
-                                                class="h4Display">0</output>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    Hours
-                                                    <input type="number" id="productivityHourly"
-                                                        name="productivityHourly" placeholder="Hours" value="0">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">20</p>
-                                            Turnover (33% of employee salary): &nbsp; <i class="fa fa-dollar-sign">
-                                            </i><output name="turnoverOutput" id="turnoverOutput"
-                                                class="h4Display">0</output>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">21</p>
-                                            Health - Disability - Life Insurance (7.9%): &nbsp;
-                                            <!-- <i
-                                                class="fa fa-dollar-sign">
-                                            </i> -->
-                                        </div>
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="checkbox" id="health" name="health" value="7.9"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">22</p>
-                                            Holidays-Vacation - Personal - Sick (7%): &nbsp;
-                                            <!-- <i
-                                                class="fa fa-dollar-sign">
-                                            </i> -->
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="checkbox" id="holidays" name="holidays" value="7"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number"><i class="fa fa-arrow-up" aria-hidden="true"></i></p>
-                                            <p>Total (Health and Holidays): $<output name="healthOutput"
-                                                    id="healthOutput">0</output></p>
-                                            <!-- <i
-                                                class="fa fa-dollar-sign">
-                                            </i> -->
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">23</p>
-                                            Taxes (SS-Medicare-Unemployment) 13.85%): &nbsp; <i
-                                                class="fa fa-dollar-sign">
-                                            </i><output name="taxOutput" id="taxOutput">0</output>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="checkbox" id="taxes" name="taxes" value="13.85"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">24</p>
-                                            Overtime (.8%): &nbsp; <i class="fa fa-dollar-sign">
-                                            </i><output name="overtimeOutput" id="overtimeOutput">0</output>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="checkbox" id="overtime" name="overtime" value="0.8"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="level">
-                                    <!-- Left side -->
-                                    <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">25</p>
-                                            Is the employee toxic?: &nbsp; <i class="fa fa-dollar-sign">
-                                            </i><output name="toxicOut" id="toxicOut">0</output>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Right side -->
-                                    <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left ">
-                                                    <!-- <i class="fa fa-dollar-sign"></i> -->
-                                                    <input type="checkbox" id="toxic" name="toxic" value="17600"
-                                                        onchange="RecruitingSoftCalc(this.value)">
-                                                    <span class="icon is-small is-left">
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- <div class="level">-->
-                                <!--Left side -->
-                                <!-- <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">2</p>
-                                            Interest Rate
                                         </div>
                                     </div> -->
 
-                                <!-- Right side -->
-                                <!-- <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-right">
-                                                    <input class="input" id="interest" type="number" />
-                                                    <span class="icon is-small is-right">
-                                                        <i class="fa fa-percentage"></i>
-
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <!-- <div class="level"> -->
-                                <!-- Left side -->
-                                <!-- <div class="level-left is-marginless">
-                                        <div class="level-item">
-                                            <p class="number">3</p>
-                                            Number Of Years
-                                        </div>
+                                            <!-- <div class="control">
+                                        <button class="button is-large is-fullwidth is-primary is-outlined">
+                                            Calculate
+                                        </button>
                                     </div> -->
-
-                                <!-- Right side -->
-                                <!-- <div class="level-right">
-                                        <div class="level-item">
-                                            <div class="field">
-                                                <div class="control has-icons-left">
-                                                    <input class="input" id="years" type="number" />
-                                                    <span class="icon is-small is-left">
-                                                        <i class="fa fa-calendar"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
-                                </div> -->
-
-                                <!-- <div class="control">
-                                    <button class="button is-large is-fullwidth is-primary is-outlined">
-                                        Calculate
-                                    </button>
-                                </div> -->
-                            </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
             </div>
-        </div>
-        </div>
-    </section>
+            </section>
+        </div><!-- content -->
+
+    </div><!-- modal -->
+    </div><!-- overlay -->
 
 
 
